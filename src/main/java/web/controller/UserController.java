@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
+import web.service.UserServiceImpl;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class UserController {
 		return "form";
 	}
 
-	@GetMapping(value = "/delete/{id}")
+	@DeleteMapping(value = "/delete/{id}")
 	public String delete(@PathVariable(value = "id") long id, Model model) {
 		User user = userService.find(id);
 		if (user == null) {

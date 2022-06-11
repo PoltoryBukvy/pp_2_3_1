@@ -22,7 +22,10 @@
             <td><span th:text="${user.lastName}">  </span></td>
             <td><span th:text="${user.email}">  </span></td>
             <td><a th:href="${'user/' + user.id}"><span>edit</span></a></td>
-            <td><a th:href="${'delete/' + user.id}"><span>delete</span></a></td>
+            <td><form th:action="${'delete/' + user.id}" th:method="delete">
+                <input name="_method" type="hidden" value="DELETE" />
+                <input type="submit" value="delete" />
+            </form></td>
         </tr>
         </tbody>
     </table>
